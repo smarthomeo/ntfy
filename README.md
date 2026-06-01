@@ -491,10 +491,46 @@ title: Customized Title
 -   [Airgram](http://www.airgramapp.com)
 -   [Boxcar](https://boxcar.io)
 
+## What's New in This Fork
+
+This fork includes significant maintenance work beyond the original repo:
+
+### Bug Fixes
+- **Fixed #266** — Migrated XMPP backend from deprecated `sleekxmpp` to `slixmpp` (Python 3.11+ compatible)
+- **Fixed #247** — Replaced `mock` with `unittest.mock` (stdlib) across all tests
+- **Fixed #218** — Added `timeout=10` to all HTTP requests to prevent hanging connections
+- **Fixed #260** — Renamed telegram backend to avoid naming conflict with `python-telegram-bot`
+- **Fixed #217** — `--pid` flag now works even without `psutil` installed
+- **Fixed #195** — Graceful handling when launched from non-existent directory
+- **Fixed #225** — Pushover emergency priority defaults for expire/retry
+
+### New Features
+- **#275** — Python logging handler (`ntfy.logging.NtfyHandler`) for integration with standard logging
+- **#237** — `--timeout` CLI flag for notification display duration
+- **#267** — TTL (time-to-live) support for Pushover backend
+- **#273** — `auto_ntfy_done_ignore` configurable in YAML config
+
+### Infrastructure
+- GitHub Actions CI for Python 3.9, 3.10, 3.11, 3.12
+- All 89 tests passing
+
+### Logging Handler Usage
+
+```python
+import logging
+from ntfy.logging import NtfyHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(NtfyHandler(title="My App"))
+logger.setLevel(logging.ERROR)
+
+logger.error("Something went wrong!")  # sends notification
+```
+
 ## Testing
 
 ``` shell
-python setup.py test
+python -m pytest tests/ -v
 ```
 
 ## Contributors
