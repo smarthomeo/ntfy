@@ -20,6 +20,7 @@ def notify(title,
            url=None,
            url_title=None,
            html=False,
+           ttl=None,
            retcode=None):
     """
     Required parameters:
@@ -105,6 +106,9 @@ def notify(title,
 
     else:
         raise ValueError('priority must be an integer from -2 to 2')
+
+    if ttl is not None:
+        data['ttl'] = ttl
 
     resp = requests.post(
         'https://api.pushover.net/1/messages.json',

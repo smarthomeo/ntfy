@@ -199,6 +199,21 @@ class TestPushover(TestCase):
             timeout=10)
 
     @patch('requests.post')
+    def test_ttl(self, mock_post):
+        notify('title', 'message', user_key='user_key', ttl=3600)
+        mock_post.assert_called_once_with(
+            'https://api.pushover.net/1/messages.json',
+            data={
+                'user': 'user_key',
+                'message': 'message',
+                'token': 'aUnsraBiEZVsmrG89AZp47K3S2dX2a',
+                'title': 'title',
+                'ttl': 3600
+            },
+            headers={'User-Agent': USER_AGENT},
+            timeout=10)
+
+    @patch('requests.post')
     def test_url(self, mock_post):
         notify('title', 'message', user_key='user_key', url='foobar')
         mock_post.assert_called_once_with(
