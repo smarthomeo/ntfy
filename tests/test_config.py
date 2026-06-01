@@ -21,7 +21,7 @@ class TestLoadConfig(TestCase):
     @patch(builtin_module + '.open', mock_open_dne_error)
     def test_default_config(self):
         config = load_config(DEFAULT_CONFIG)
-        self.assertEqual(config, {})
+        self.assertEqual(config, {'backends': ['default']})
 
     @patch(builtin_module + '.open', mock_open())
     @patch('ntfy.config.safe_load')
