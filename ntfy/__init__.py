@@ -1,4 +1,4 @@
-import logging
+import logging as _logging
 from getpass import getuser
 from os import getcwd, path, name
 from socket import gethostname
@@ -9,7 +9,10 @@ from .backends.default import DefaultNotifierError
 __version__ = '2.7.1'
 
 _user_home = path.expanduser('~')
-_cwd = getcwd()
+try:
+    _cwd = getcwd()
+except OSError:
+    _cwd = '[unknown]'
 if name != 'nt' and _cwd.startswith(_user_home):
     default_title = '{}@{}:{}'.format(
         getuser(), gethostname(), path.join('~', _cwd[len(_user_home) + 1:]))
@@ -53,7 +56,7 @@ def notify(message, title, config=None, **kwargs):
             try:
                 notifier = import_module(backend)
             except ImportError:
-                logging.getLogger(__name__).error(
+                _logging.getLogger(__name__).error(
                     'Invalid backend {}'.format(backend))
                 ret = 1
                 continue
@@ -82,15 +85,15 @@ def notify(message, title, config=None, **kwargs):
             missing_args = required_args - set(backend_config)
 
             if unknown_args:
-                logging.getLogger(__name__).error(
+                _logging.getLogger(__name__).error(
                     'Got unknown arguments: {}'.format(unknown_args))
 
             if missing_args:
-                logging.getLogger(__name__).error(
+                _logging.getLogger(__name__).error(
                     'Missing arguments: {}'.format(missing_args))
 
             if not any([unknown_args, missing_args]):
-                logging.getLogger(__name__).error(
+                _logging.getLogger(__name__).error(
                     'Failed to send notification using {}'.format(backend),
                     exc_info=True)
 
