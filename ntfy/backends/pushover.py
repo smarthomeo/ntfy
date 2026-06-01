@@ -111,7 +111,8 @@ def notify(title,
         data=data,
         headers={
             'User-Agent': USER_AGENT,
-        })
+        },
+        timeout=10)
 
     if resp.status_code == 429:
         print("ntfy's default api_token has reached pushover's rate limit")

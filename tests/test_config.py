@@ -3,7 +3,7 @@ from os import environ
 from sys import version_info
 from unittest import TestCase, main, skipIf
 
-from mock import mock_open, patch
+from unittest.mock import mock_open, patch
 from ntfy.config import DEFAULT_CONFIG, load_config
 
 py = version_info.major

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from mock import MagicMock, patch, AsyncMock
+from unittest.mock import MagicMock, patch, AsyncMock
 from ntfy.backends.xmpp import NtfySendMsgBot, notify
 from ntfy.config import USER_AGENT
 
