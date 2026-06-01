@@ -16,6 +16,12 @@ if name != 'nt' and _cwd.startswith(_user_home):
 else:
     default_title = '{}@{}:{}'.format(getuser(), gethostname(), _cwd)
 
+# Backend name aliases to avoid conflicts with third-party packages.
+# Maps old/conflicting backend names to their renamed modules.
+BACKEND_ALIASES = {
+    'telegram': 'telegram_send',
+}
+
 
 def notify(message, title, config=None, **kwargs):
     from .config import load_config
@@ -37,6 +43,9 @@ def notify(message, title, config=None, **kwargs):
                                        config.get('title', default_title))
         elif 'title' in backend_config:
             del backend_config['title']
+
+        # Resolve backend aliases
+        backend = BACKEND_ALIASES.get(backend, backend)
 
         try:
             notifier = import_module('ntfy.backends.{}'.format(backend))

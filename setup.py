@@ -17,7 +17,7 @@ extra_deps = {
     'rocketchat':['rocketchat-API'],
     'matrix':['matrix_client'],
 }
-test_deps = ['mock', 'slixmpp', 'emoji', 'psutil']
+test_deps = ['slixmpp', 'emoji', 'psutil']
 
 long_description = "See the repo readme for mor information"
 
