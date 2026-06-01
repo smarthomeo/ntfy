@@ -1,8 +1,11 @@
 # About `ntfy`
 
+> **🔔 Actively maintained fork** — The original [dschep/ntfy](https://github.com/dschep/ntfy) has been unmaintained since October 2025. This fork is actively maintained with bug fixes, dependency updates, and new features. Issues and PRs welcome!
+
 [![Version](https://img.shields.io/pypi/v/ntfy.svg?logo=data%3Aimage/svg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIj48cGF0aCBmaWxsPSIjMzY3MWEyIiBkPSJNNjIuNDc2IDMzLjRjMC0xNi4zNiA0LjM4Ni0yNS4yNiAyOC42MDctMjkuNDk4IDE2LjQ0NC0yLjg4IDM3LjUyOC0zLjI0MiA1Ny4xOTMgMCAxNS41MzMgMi41NjQgMjguNjA3IDE0LjEzNCAyOC42MDcgMjkuNDk3djUzLjk3YzAgMTUuODMtMTIuNjkzIDI4Ljc5NS0yOC42MDcgMjguNzk1SDkxLjA4M2MtMTkuNDEgMC0zNS43NyAxNi41NS0zNS43NyAzNS4yNnYyNS44OTVIMzUuNjVjLTE2LjYzNiAwLTI2LjMyLTExLjk5My0zMC4zODgtMjguNzc2LTUuNDktMjIuNTQ2LTUuMjU2LTM1Ljk4IDAtNTcuNTc0QzkuODE4IDcyLjEzNyAyNC4zNzUgNjIuMTk4IDQxLjAxIDYyLjE5OGg3OC42OHYtNy4yMDRINjIuNDc2VjMzLjR6Ii8%2BPHBhdGggZmlsbD0iI2ZmZDA0NiIgZD0iTTE3Ni44ODMgMjA2LjEyM2MwIDE2LjM2LTE0LjE5OCAyNC42NDQtMjguNjA3IDI4Ljc3Ni0yMS42NzggNi4yMy0zOS4wNzUgNS4yNzMtNTcuMTkzIDAtMTUuMTMtNC40MS0yOC42MDctMTMuNDE3LTI4LjYwNy0yOC43OHYtNTMuOTdjMC0xNS41MzMgMTIuOTQ3LTI4Ljc5OCAyOC42MDctMjguNzk4aDU3LjE5M2MxOS4wNSAwIDM1Ljc3LTE2LjQ2NSAzNS43Ny0zNS45OFY2Mi4xOTZoMjEuNDQ0YzE2LjY1NiAwIDI0LjQ5NiAxMi4zNzYgMjguNjA3IDI4Ljc3NyA1LjcyMiAyMi43OCA1Ljk3NiAzOS44MTcgMCA1Ny41NzQtNS43ODUgMTcuMjUtMTEuOTcyIDI4Ljc3Ny0yOC42MDcgMjguNzc3aC04NS44djcuMjA1aDU3LjE5M3YyMS41OXoiLz48L3N2Zz4%3D)](https://pypi.org/project/ntfy/)
+[![Tests](https://github.com/smarthomeo/ntfy/actions/workflows/test.yml/badge.svg)](https://github.com/smarthomeo/ntfy/actions)
+[![Python](https://img.shields.io/pypi/pyversions/ntfy.svg)](https://pypi.org/project/ntfy/)
 [![Docs](http://readthedocs.org/projects/ntfy/badge/?version=latest)](http://ntfy.readthedocs.org/en/stable/?badge=latest)
-[![SayThanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/dschep)
 
 `ntfy` brings notification to your shell. It can automatically provide
 desktop notifications when long running commands finish or it can send
